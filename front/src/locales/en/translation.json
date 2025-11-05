@@ -1,0 +1,155 @@
+{
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "about": "About Us",
+    "contact": "Contact"
+  },
+
+  "footer": {
+    "brand": {
+      "description": "We boost your digital presence with design, technology, and strategy."
+    },
+    "fastLinks": {
+      "title": "Quick Links"
+    },
+    "services": ["Web Design", "Digital Marketing", "Branding & Identity", "SEO Optimization"],
+    "contact": {
+      "title": "Contact Us",
+      "country": "Spain"
+    },
+    "copyrigth": { "description": "Web design and digital solutions" }
+  },
+
+  "home": {
+    "title": "We design the website your brand deserves",
+    "subtitle": "We create modern, clean websites tailored to your business.",
+    "cards": [
+      { "title": "Web Design", "text": "Custom, fast, and optimized websites." },
+      { "title": "Digital Marketing", "text": "Strategy, SEO, and online growth." },
+      { "title": "Branding & Identity", "text": "We create an identity that conveys your value." }
+    ],
+    "section": {
+      "title": "We create modern and professional websites",
+      "description": "We offer clean web designs tailored to your needs, to enhance your online presence and attract more clients with a solid and trustworthy image.",
+      "button": "Contact Us"
+    }
+  },
+
+  "services": {
+    "title": "Our Web Design Services",
+    "subtitle": "We offer modern, customized solutions to enhance your online presence, tailored to the needs of local businesses and entrepreneurs with a professional and clean approach.",
+    "ourServices": [
+      {
+        "title": "Web Design",
+        "text": "We design and develop responsive websites that reflect your brand identity. Our sites are fast, modern, and optimized for all devices to ensure the best user experience.",
+        "icon": "💻"
+      },
+      {
+        "title": "Digital Marketing",
+        "text": "Our marketing strategies help you reach your target audience effectively. We combine SEO, social media campaigns, and analytics to drive growth and improve your online visibility.",
+        "icon": "📈"
+      },
+      {
+        "title": "Branding & Identity",
+        "text": "We create compelling brand identities that communicate your values and differentiate you from competitors. From logos to full visual systems, we make your brand unforgettable.",
+        "icon": "🎨"
+      }
+    ],
+    "section": {
+      "title": "Ready to elevate your business?",
+      "description": "Contact us today and let’s create a digital presence that drives results. Our solutions are modern, clean, and tailored to your business needs.",
+      "button": "Get in Touch"
+    }
+  },
+
+  "portfolio": {
+    "title": "Our Portfolio",
+    "subtitle": "Discover some of the projects we’ve worked on. Modern, responsive, and optimized for all devices.",
+    "demos": [
+      {
+        "title": "E-Commerce Store",
+        "image": "/images/ecom.jpg",
+        "description": "An online store designed to increase sales and provide a smooth user experience across all devices."
+      },
+      {
+        "title": "Corporate Website",
+        "image": "/images/corp.jpg",
+        "description": "A professional corporate website to enhance the brand image and attract clients effectively."
+      },
+      {
+        "title": "Portfolio Showcase",
+        "image": "/images/port.jpg",
+        "description": "A visually stunning portfolio to display creative works with modern design and interactivity."
+      },
+      {
+        "title": "Startup Landing Page",
+        "image": "/images/start.jpg",
+        "description": "A landing page optimized for conversions, highlighting the startup’s key features and benefits."
+      },
+      {
+        "title": "Blog & Content Platform",
+        "image": "/images/blog.jpg",
+        "description": "A clean, responsive blog platform with a focus on readability and content engagement."
+      },
+      {
+        "title": "Marketing Campaign Microsite",
+        "image": "/images/mark.jpg",
+        "description": "A small, focused website built to support marketing campaigns with effective calls to action."
+      }
+    ]
+  },
+
+  "about": {
+    "title": "About Our Company",
+    "subtitle": "We are a team of passionate professionals dedicated to creating digital solutions that help businesses grow.",
+    "story": {
+      "title": "Who We Are",
+      "description": "Founded in 2015, our company has been delivering innovative web design, marketing, and branding solutions. We focus on modern, clean, and user-friendly experiences.",
+      "subtitle": "Our mission is to help local businesses and entrepreneurs establish a strong online presence while maintaining a professional and trustworthy image."
+    },
+    "team": {
+      "title": "Meet Our Team",
+      "members": [
+        {
+          "photo": "/images/about/alberto.jpeg",
+          "name": "Alberto Gandoy Florido",
+          "description": "CEO & Developer"
+        },
+        {
+          "photo": "/images/about/belen.jpg",
+          "name": "Belén Jiménez Ranchal",
+          "description": "Chief Marketing Officer"
+        },
+        {
+          "photo": "/images/about/david.jpg",
+          "name": "David Ramirez",
+          "description": "Director of Content Creation, Video & Photography"
+        }
+      ]
+    }
+  },
+
+  "contact": {
+    "title": "Get in Touch",
+    "subtitle": "Have a project in mind or just want to say hi? Fill the form below and we’ll get back to you as soon as possible.",
+    "contact": {
+      "title": "Contact",
+      "email": "Email",
+      "phone": "Phone"
+    },
+    "hours": {
+      "title": "Hours",
+      "week": "Monday - Friday",
+      "weekendSaturday": "Saturday",
+      "weekendSunday": "Sunday: Closed"
+    },
+    "form": {
+      "name": "Your name",
+      "email": "Your email",
+      "message": "Your message",
+      "button": "Send Message"
+    }
+  }
+}

@@ -1,0 +1,156 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "services": "Servicios",
+    "portfolio": "Portfolio",
+    "about": "Nosotros",
+    "contact": "Contacto"
+  },
+
+  "footer": {
+    "brand": {
+      "description": "Impulsamos tu presencia digital con diseño, tecnología y estrategia."
+    },
+    "fastLinks": {
+      "title": "Enlaces rápidos"
+    },
+    "services": ["Diseño Web", "Marketing Digital", "Branding e Identidad", "Optimización SEO"],
+
+    "contact": {
+      "title": "Contáctanos",
+      "country": "España"
+    },
+    "copyrigth": { "description": "Diseño web y soluciones digitales" }
+  },
+
+  "home": {
+    "title": "Diseñamos la web que tu marca merece",
+    "subtitle": "Creamos sitios modernos, limpios y adaptados a tu negocio.",
+    "cards": [
+      { "title": "Diseño Web", "text": "Sitios personalizados, rápidos y optimizados." },
+      { "title": "Marketing Digital", "text": "Estrategia, SEO y crecimiento online." },
+      { "title": "Branding & Identidad", "text": "Creamos la identidad que transmite tu valor." }
+    ],
+    "section": {
+      "title": "Creamos páginas web modernas y profesionales",
+      "description": "Ofrecemos diseños web limpios, adaptados a tus necesidades, para potenciar tu presencia online y atraer más clientes con una imagen sólida y confiable.",
+      "button": "Contáctanos"
+    }
+  },
+
+  "services": {
+    "title": "Nuestros servicios de diseño web",
+    "subtitle": "Ofrecemos soluciones modernas y personalizadas para potenciar tu presencia en línea, adaptadas a las necesidades de comercios y emprendedores locales con un enfoque profesional y limpio.",
+    "ourServices": [
+      {
+        "title": "Diseño Web",
+        "text": "Diseñamos y desarrollamos sitios web responsivos que reflejan la identidad de tu marca. Nuestros sitios son rápidos, modernos y optimizados para todos los dispositivos, asegurando la mejor experiencia de usuario.",
+        "icon": "💻"
+      },
+      {
+        "title": "Marketing Digital",
+        "text": "Nuestras estrategias de marketing te ayudan a llegar efectivamente a tu público objetivo. Combinamos SEO, campañas en redes sociales y análisis para impulsar el crecimiento y mejorar tu visibilidad online.",
+        "icon": "📈"
+      },
+      {
+        "title": "Branding e Identidad",
+        "text": "Creamos identidades de marca impactantes que comunican tus valores y te diferencian de la competencia. Desde logos hasta sistemas visuales completos, hacemos que tu marca sea inolvidable.",
+        "icon": "🎨"
+      }
+    ],
+    "section": {
+      "title": "¿Listo para impulsar tu negocio?",
+      "description": "Contáctanos hoy y creemos una presencia digital que genere resultados. Nuestras soluciones son modernas, limpias y adaptadas a las necesidades de tu negocio.",
+      "button": "Contáctanos"
+    }
+  },
+
+  "portfolio": {
+    "title": "Nuestro Portafolio",
+    "subtitle": "Descubre algunos de los proyectos en los que hemos trabajado. Modernos, responsivos y optimizados para todos los dispositivos.",
+    "demos": [
+      {
+        "title": "Tienda Online",
+        "image": "/images/ecom.jpg",
+        "description": "Una tienda online diseñada para aumentar las ventas y ofrecer una experiencia de usuario fluida en todos los dispositivos."
+      },
+      {
+        "title": "Sitio Corporativo",
+        "image": "/images/corp.jpg",
+        "description": "Un sitio corporativo profesional para mejorar la imagen de marca y atraer clientes de manera efectiva."
+      },
+      {
+        "title": "Portafolio Creativo",
+        "image": "/images/port.jpg",
+        "description": "Un portafolio visualmente impresionante para mostrar trabajos creativos con diseño moderno e interactividad."
+      },
+      {
+        "title": "Landing Page de Startup",
+        "image": "/images/start.jpg",
+        "description": "Una página de aterrizaje optimizada para conversiones, destacando las características clave y beneficios de la startup."
+      },
+      {
+        "title": "Blog y Plataforma de Contenido",
+        "image": "/images/blog.jpg",
+        "description": "Una plataforma de blog limpia y responsiva, con enfoque en la legibilidad y el compromiso con el contenido."
+      },
+      {
+        "title": "Micrositio para Campaña de Marketing",
+        "image": "/images/mark.jpg",
+        "description": "Un sitio pequeño y enfocado, construido para apoyar campañas de marketing con llamadas a la acción efectivas."
+      }
+    ]
+  },
+
+  "about": {
+    "title": "Sobre Nuestra Empresa",
+    "subtitle": "Somos un equipo de profesionales apasionados dedicados a crear soluciones digitales que ayudan a las empresas a crecer.",
+    "story": {
+      "title": "Quiénes Somos",
+      "description": "Fundada en 2025, nuestra empresa ha estado ofreciendo soluciones innovadoras de diseño web, marketing y branding. Nos enfocamos en experiencias modernas, limpias y fáciles de usar.",
+      "subtitle": "Nuestra misión es ayudar a negocios locales y emprendedores a establecer una presencia sólida en línea mientras mantienen una imagen profesional y confiable."
+    },
+    "team": {
+      "title": "Conoce a Nuestro Equipo",
+      "members": [
+        {
+          "photo": "/images/about/alberto.jpeg",
+          "name": "Alberto Gandoy Florido",
+          "description": "CEO y Desarrollador"
+        },
+        {
+          "photo": "/images/about/belen.jpg",
+          "name": "Belén Jiménez Ranchal",
+          "description": "Directora de Marketing"
+        },
+        {
+          "photo": "/images/about/david.jpg",
+          "name": "David Ramirez",
+          "description": "Director de creacion de contenido, Video y Fotografía"
+        }
+      ]
+    }
+  },
+
+  "contact": {
+    "title": "Ponte en contacto",
+    "subtitle": "¿Tienes un proyecto en mente o solo quieres saludar? Rellena el formulario a continuación y nos pondremos en contacto contigo lo antes posible.",
+    "contact": {
+      "title": "Contacto",
+      "email": "Correo electrónico",
+      "phone": "Teléfono"
+    },
+    "hours": {
+      "title": "Horario",
+      "week": "Lunes - Viernes",
+      "weekendSaturday": "Sábado",
+      "weekendSunday": "Domingo: Cerrado"
+    },
+    "form": {
+      "name": "Tu nombre",
+      "email": "Tu correo electrónico",
+      "message": "Tu mensaje",
+      "button": "Enviar mensaje"
+    }
+  }
+}
