@@ -111,21 +111,25 @@
     },
     "team": {
       "title": "Meet Our Team",
+      "whoIs": "Who is",
       "members": [
         {
-          "photo": "/images/about/alberto.jpeg",
+          "photo": "/images/about/alberto.jpg",
           "name": "Alberto Gandoy Florido",
-          "description": "CEO & Developer"
+          "job": "CEO & Developer",
+          "description": ""
         },
         {
           "photo": "/images/about/belen.jpg",
           "name": "Belén Jiménez Ranchal",
-          "description": "Chief Marketing Officer"
+          "job": "Chief Marketing Officer",
+          "description": ""
         },
         {
           "photo": "/images/about/david.jpg",
           "name": "David Ramirez",
-          "description": "Director of Content Creation, Video & Photography"
+          "job": "Director of Content Creation, Video & Photography",
+          "description": ""
         }
       ]
     }

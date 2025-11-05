@@ -1,16 +1,34 @@
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { LINKS } from '../../constants/links';
+
+// Redes sociales
+const socialLinks = [
+  {
+    href: 'https://www.google.com/search?sca_esv=c5d665130b0b830b&hl=es&authuser=1&sxsrf=AE3TifOKsDeUucLbqmZnbv2C8jCxLzTJJw:1761829485628&kgmid=/g/11ylr6zsl3&q=GgT+Digital&shndl=30&shem=dafa,lcuae,uaasie,shrtsdl&source=sh/x/loc/uni/m1/1&kgs=a575e082fed4e60e&utm_source=dafa,lcuae,uaasie,shrtsdl,sh/x/loc/uni/m1/1',
+    label: 'Google',
+    icon: 'fa-google',
+    color: 'hover:text-gray-500',
+  },
+  { href: 'https://www.instagram.com/ggt_digital/', label: 'Instagram', icon: 'fa-instagram', color: 'hover:text-pink-500' },
+  { href: 'https://www.linkedin.com/company/109755566', label: 'LinkedIn', icon: 'fa-linkedin-in', color: 'hover:text-blue-400' },
+  { href: 'https://ggtdigitals.com/', label: 'Google', icon: 'fa-wordpress', color: 'hover:text-gray-500' },
+];
+
+// Componente para cada columna del footer
+function FooterColumn({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <div>
+      <h3 className="text-lg font-semibold text-white mb-4">{title}</h3>
+      {children}
+    </div>
+  );
+}
 
 export default function Footer() {
   const { t } = useTranslation();
 
-  const links = [
-    { to: '/', label: t('nav.home') },
-    { to: '/services', label: t('nav.services') },
-    { to: '/portfolio', label: t('nav.portfolio') },
-    { to: '/about', label: t('nav.about') },
-    { to: '/contact', label: t('nav.contact') },
-  ];
+  const services = t('footer.services', { returnObjects: true }) as string[];
 
   return (
     <footer className="border-t border-gray-700 w-full bg-gray-900 text-gray-300 py-12">
@@ -20,53 +38,42 @@ export default function Footer() {
           <h2 className="text-2xl font-bold text-white mb-4">GgT Digital</h2>
           <p className="text-gray-400 mb-6">{t('footer.brand.description')}</p>
           <div className="flex gap-4">
-            <a
-              href="https://www.google.com/search?sca_esv=c5d665130b0b830b&hl=es&authuser=1&sxsrf=AE3TifOKsDeUucLbqmZnbv2C8jCxLzTJJw:1761829485628&kgmid=/g/11ylr6zsl3&q=GgT+Digital&shndl=30&shem=dafa,lcuae,uaasie,shrtsdl&source=sh/x/loc/uni/m1/1&kgs=a575e082fed4e60e&utm_source=dafa,lcuae,uaasie,shrtsdl,sh/x/loc/uni/m1/1"
-              aria-label="Google"
-              className="hover:text-grey-500 transition-colors"
-            >
-              <i className="text-white fa-brands fa-google"></i>
-            </a>
-            <a href="https://www.instagram.com/ggt_digital/" aria-label="Instagram" className="hover:text-pink-500 transition-colors">
-              <i className="text-white fa-brands fa-instagram"></i>
-            </a>
-            <a href="https://www.linkedin.com/company/109755566" aria-label="LinkedIn" className="hover:text-blue-400 transition-colors">
-              <i className="text-white fa-brands fa-linkedin-in"></i>
-            </a>
+            {socialLinks.map(link => (
+              <a key={link.label} href={link.href} aria-label={link.label} className={`transition-colors ${link.color}`} target="_blank" rel="noopener noreferrer">
+                <i className={`text-white fa-brands ${link.icon}`}></i>
+              </a>
+            ))}
           </div>
         </div>
 
         {/* Columna 2 - Enlaces rápidos */}
-        <div>
-          <h3 className="text-lg font-semibold text-white mb-4">{t('footer.fastLinks.title')}</h3>
+        <FooterColumn title={t('footer.fastLinks.title')}>
           <div className="space-y-1">
-            {links.map(link => (
-              <div>
-                <Link style={{ textDecoration: 'none', color: '#beb8b8ff' }} to={link.to} className="transition-colors">
-                  {link.label}
+            {LINKS.map(link => (
+              <div key={link.to}>
+                <Link to={link.to} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="no-underline text-gray-300 hover:text-white transition-colors">
+                  {t(link.key)}
                 </Link>
               </div>
             ))}
           </div>
-        </div>
+        </FooterColumn>
 
         {/* Columna 3 - Servicios */}
-        <div>
-          <h3 className="text-lg font-semibold text-white mb-4">Servicios</h3>
+        <FooterColumn title="Servicios">
           <ul className="space-y-2">
-            {(t('footer.services', { returnObjects: true }) as []).map(serv => (
-              <li>{serv}</li>
+            {services.map(service => (
+              <li key={service}>{service}</li>
             ))}
           </ul>
-        </div>
+        </FooterColumn>
 
         {/* Columna 4 - Contacto */}
-        <div>
-          <h3 className="text-lg font-semibold text-white mb-4">{t('footer.contact.title')}</h3>
+        <FooterColumn title={t('footer.contact.title')}>
           <p className="text-gray-400 mb-2">📍 Málaga, {t('footer.contact.country')}</p>
           <p className="text-gray-400 mb-2">📞 +34 676 786 232</p>
           <p className="text-gray-400">📧 ggtdigitals@gmail.com</p>
-        </div>
+        </FooterColumn>
       </div>
 
       {/* Línea inferior */}

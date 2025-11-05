@@ -1,11 +1,12 @@
 // src/pages/About.tsx
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 type Team = {
   photo: any;
   name: string;
+  job: string;
   description: string;
-  dayToDay: string;
 };
 
 export default function About() {
@@ -46,17 +47,59 @@ export default function About() {
       <section className="py-20 bg-gray-100 dark:bg-gray-800">
         <div className="max-w-6xl mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-extrabold mb-10">{t('about.team.title')}</h2>
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {(t('about.team.members', { returnObjects: true }) as Team[]).map((team, index) => (
-              <div key={index} className="rounded-xl overflow-hidden shadow-lg">
-                <img src={team.photo} alt={`Team member ${index + 1}`} className="w-40 h-40 md:w-48 md:h-48 object-cover rounded-full mx-auto" />
-                <h6 className="text-xl md:text-1xl font-extrabold mb-6">{team.name}</h6>
-                <p className="text-gray-700 dark:text-gray-300 mb-4">{team.description}</p>
-              </div>
+              <FlipCard key={index} team={team} />
             ))}
           </div>
         </div>
       </section>
     </main>
+  );
+}
+
+function FlipCard({ team }: { team: Team }) {
+  const { t } = useTranslation();
+  const [flipped, setFlipped] = useState(false);
+
+  return (
+    <div className="w-full h-96 perspective cursor-pointer" onClick={() => setFlipped(!flipped)}>
+      <div
+        className={`relative w-full h-full transition-transform duration-500 transform-style preserve-3d ${flipped ? 'rotate-y-180' : 'group-hover:rotate-y-180'}`}
+        style={{
+          transformStyle: 'preserve-3d',
+          WebkitTransformStyle: 'preserve-3d',
+        }}
+      >
+        {/* Frente */}
+        <div
+          className="absolute w-full h-full rounded-xl shadow-lg flex flex-col items-center justify-center p-4 bg-gray-100 dark:bg-gray-800"
+          style={{
+            backfaceVisibility: 'hidden',
+            WebkitBackfaceVisibility: 'hidden',
+          }}
+        >
+          <img src={team.photo} alt={team.name} className="w-40 h-40 md:w-48 md:h-48 object-cover rounded-full mx-auto mb-4" />
+          <h6 className="text-xl md:text-2xl font-extrabold mb-6">{team.name}</h6>
+          <p className="text-gray-700 dark:text-gray-300 mb-4">{team.job}</p>
+        </div>
+
+        {/* Reverso */}
+        <div
+          className="absolute w-full h-full rounded-xl shadow-lg flex flex-col items-center justify-center p-4 bg-gray-100 dark:bg-gray-800"
+          style={{
+            transform: 'rotateY(180deg)',
+            backfaceVisibility: 'hidden',
+            WebkitBackfaceVisibility: 'hidden',
+          }}
+        >
+          <h6 className="text-xl md:text-2xl font-extrabold mb-6">
+            {t('about.team.whoIs')} {team.name}?
+          </h6>
+          <p className="text-gray-700 dark:text-gray-300 text-center">{team.description}</p>
+        </div>
+      </div>
+    </div>
   );
 }
