@@ -117,19 +117,19 @@
           "photo": "/images/about/alberto.jpg",
           "name": "Alberto Gandoy Florido",
           "job": "CEO & Developer",
-          "description": ""
+          "description": "Alberto is a professional with extensive experience in software development and technology consulting, having worked at companies such as Accenture, Sogeti, Knowmad Mood, and currently Globant.\nHe specializes in managing and developing high-impact projects, ensuring quality, efficiency, and scalable solutions.\nPassionate about programming and innovation, he combines technical knowledge with a perfectionist approach."
         },
         {
           "photo": "/images/about/belen.jpg",
           "name": "Belén Jiménez Ranchal",
           "job": "Chief Marketing Officer",
-          "description": ""
+          "description": "Passionate about marketing from a young age, she has always sought perfection in every detail of her work.\nWith experience in digital campaigns, brand strategy, and communication, she combines creativity with an analytical approach to achieve measurable and effective results."
         },
         {
           "photo": "/images/about/david.jpg",
           "name": "David Ramirez",
           "job": "Director of Content Creation, Video & Photography",
-          "description": ""
+          "description": "Passionate about audiovisual content creation, he combines photography, video, and storytelling to convey ideas in a unique way.\nHe is the creator of his own brand, Feelmar, where he develops personal and professional projects that reflect his style and vision.\nHis passion for creativity and innovation drives him to constantly explore new techniques and trends, ensuring that each project is impactful and authentic."
         }
       ]
     }

@@ -41,7 +41,6 @@ function DesktopMenu({ links, t, i18n, changeLanguage }: any) {
         </NavLink>
       ))}
 
-      {/* Selector de idioma */}
       <div className="relative">
         <button onClick={() => setLangMenuOpen(!langMenuOpen)} className="font-medium flex items-center gap-1 hover:text-blue-400 transition">
           🌐 {i18n.language.toUpperCase()}
