@@ -7,10 +7,12 @@ import { LINKS } from '../../constants/links';
 // Botón de selección de idioma reutilizable
 function LanguageButton({ lang, currentLang, onClick, mobile = false }: { lang: string; currentLang: string; onClick: () => void; mobile?: boolean }) {
   const isActive = lang === currentLang;
-  const baseClasses = mobile ? 'flex items-center gap-2 px-4 py-2 rounded-full font-semibold transition-all duration-300' : 'px-2 py-2 hover:bg-white/10 hover:text-white';
+  const baseClasses = mobile
+    ? 'flex items-center gap-2 px-4 py-2 rounded-full font-semibold transition-all duration-300'
+    : 'px-2 py-2 hover:bg-blue-100 dark:hover:bg-gray-800 hover:text-blue-500';
 
   const activeClasses = mobile ? 'bg-blue-500 text-white shadow-lg' : '';
-  const inactiveClasses = mobile ? 'bg-gray-800 text-white hover:bg-blue-500/70 hover:text-white' : '';
+  const inactiveClasses = mobile ? 'bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-gray-100 hover:bg-blue-500/70 hover:text-white' : '';
 
   return (
     <button onClick={onClick} className={clsx(baseClasses, isActive ? activeClasses : inactiveClasses)}>
@@ -35,19 +37,19 @@ function DesktopMenu({ links, t, i18n, changeLanguage }: any) {
           key={item.to}
           to={item.to}
           style={{ textDecoration: 'none' }}
-          className={({ isActive }) => clsx('text-white font-medium hover:text-blue-400 transition-colors', isActive && 'text-blue-400 font-semibold')}
+          className={({ isActive }) => clsx('text-gray-800 dark:text-gray-100 font-medium hover:text-blue-500 transition-colors', isActive && 'text-blue-500 font-semibold')}
         >
           {t(item.key)}
         </NavLink>
       ))}
 
       <div className="relative">
-        <button onClick={() => setLangMenuOpen(!langMenuOpen)} className="font-medium flex items-center gap-1 hover:text-blue-400 transition">
+        <button onClick={() => setLangMenuOpen(!langMenuOpen)} className="font-medium flex items-center gap-1 hover:text-blue-500 transition">
           🌐 {i18n.language.toUpperCase()}
         </button>
 
         {langMenuOpen && (
-          <div className="absolute right-0 mt-2 bg-gray-900 rounded-md shadow-lg overflow-hidden border border-white/10">
+          <div className="absolute right-0 mt-2 bg-gray-50 dark:bg-gray-900 rounded-md shadow-lg overflow-hidden border border-gray-300 dark:border-gray-700">
             <LanguageButton lang="es" currentLang={i18n.language} onClick={() => handleLangChange('es')} />
             <LanguageButton lang="en" currentLang={i18n.language} onClick={() => handleLangChange('en')} />
           </div>
@@ -68,13 +70,13 @@ function MobileMenu({ links, t, i18n, changeLanguage, closeMenu }: any) {
 
   const handleCloseMenu = () => {
     setClosing(true);
-    setTimeout(() => closeMenu(), 300); // coincide con la duración de la animación
+    setTimeout(() => closeMenu(), 300);
   };
 
   return (
     <div
       className={clsx(
-        'md:hidden fixed  flex flex-col items-center gap-6 py-8 bg-black rounded-b-xl shadow-xl transition-transform duration-300',
+        'md:hidden fixed top-0 left-0 w-full h-full flex flex-col items-center gap-6 py-8 transition-transform duration-300 z-50 bg-gray-50 dark:bg-gray-900',
         closing ? 'animate-slideUp' : 'animate-slideDown'
       )}
     >
@@ -84,14 +86,16 @@ function MobileMenu({ links, t, i18n, changeLanguage, closeMenu }: any) {
           key={item.to}
           to={item.to}
           onClick={handleCloseMenu}
-          className={({ isActive }) => clsx('text-white hover:text-blue-400 text-lg font-medium transition-colors', isActive && 'text-blue-400 font-semibold')}
+          className={({ isActive }) =>
+            clsx('text-gray-800 dark:text-gray-100 hover:text-blue-500 text-lg font-medium transition-colors', isActive && 'text-blue-500 font-semibold')
+          }
         >
           {t(item.key)}
         </NavLink>
       ))}
 
       {/* Selector idioma móvil */}
-      <div className="flex gap-4 mt-6 p-3 bg-gray-800 rounded-2xl shadow-lg">
+      <div className="flex gap-4 mt-6 p-3 bg-gray-200 dark:bg-gray-800 rounded-2xl shadow-lg">
         <LanguageButton lang="es" currentLang={i18n.language} onClick={() => handleLangChange('es')} mobile />
         <LanguageButton lang="en" currentLang={i18n.language} onClick={() => handleLangChange('en')} mobile />
       </div>
@@ -112,10 +116,10 @@ export default function Navbar() {
   const bars = [menuOpen ? 'rotate-45 translate-y-[6px]' : '', menuOpen ? 'opacity-0' : '', menuOpen ? '-rotate-45 -translate-y-[6px]' : ''];
 
   return (
-    <header className="sticky top-0 z-50 bg-transparent backdrop-blur-sm">
+    <header className="sticky top-0 z-50 bg-gray-50 dark:bg-gray-900">
       <nav className="max-w-6xl mx-auto flex items-center justify-between py-4 px-6 md:px-4">
         {/* Logo */}
-        <Link to="/" className="text-2xl font-extrabold tracking-tight text-white hover:text-blue-400 transition-colors no-underline">
+        <Link to="/" className="text-2xl font-extrabold tracking-tight text-gray-800 dark:text-gray-100 hover:text-blue-500 transition-colors no-underline">
           GgT Digital
         </Link>
 
@@ -124,12 +128,12 @@ export default function Navbar() {
 
         {/* Botón hamburguesa */}
         <button
-          className="md:hidden flex flex-col justify-center items-center w-10 h-10 rounded-md hover:bg-white/10 transition"
+          className="md:hidden flex flex-col justify-center items-center w-10 h-10 rounded-md hover:bg-gray-200 dark:hover:bg-gray-800 transition"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Abrir menú"
         >
           {bars.map((bar, i) => (
-            <span key={i} className={clsx('block w-6 h-[2px] bg-white my-[5px] transition-all duration-300', bar)} />
+            <span key={i} className={clsx('block w-6 h-[2px] bg-gray-800 dark:bg-gray-100 my-[5px] transition-all duration-300', bar)} />
           ))}
         </button>
       </nav>

@@ -38,8 +38,8 @@ export default function Footer() {
           <h2 className="text-2xl font-bold text-white mb-4">GgT Digital</h2>
           <p className="text-gray-400 mb-6">{t('footer.brand.description')}</p>
           <div className="flex gap-4">
-            {socialLinks.map(link => (
-              <a key={link.label} href={link.href} aria-label={link.label} className={`transition-colors ${link.color}`} target="_blank" rel="noopener noreferrer">
+            {socialLinks.map((link, index) => (
+              <a key={index} href={link.href} aria-label={link.label} className={`transition-colors ${link.color}`} target="_blank" rel="noopener noreferrer">
                 <i className={`text-white fa-brands ${link.icon}`}></i>
               </a>
             ))}
