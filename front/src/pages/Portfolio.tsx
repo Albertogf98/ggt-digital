@@ -1,6 +1,8 @@
 // src/pages/Portfolio.tsx
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom'; // 👈 Importante
 
 type Project = {
   title: string;
@@ -10,52 +12,81 @@ type Project = {
 
 export default function Portfolio() {
   const { t } = useTranslation();
-
+  const labelSeeProject = t('portfolio.view_project');
   const ctaImages = ['/images/portfolio/mac.jpg', '/images/portfolio/google.jpg', '/images/portfolio/usa.jpg'];
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex(prev => (prev + 1) % ctaImages.length);
-    }, 3000); // cambia cada 3 segundos
-
+    }, 3000);
     return () => clearInterval(interval);
   }, []);
 
   return (
     <main className="overflow-x-hidden">
-      {/* Hero con video */}
-      <section className="relative h-screen md:h-[80vh] flex items-center justify-center overflow-hidden">
+      {/* HERO SECTION */}
+      <section className="relative h-[90vh] sm:h-[80vh] flex items-center justify-center overflow-hidden">
         <video className="absolute top-0 left-0 w-full h-full object-cover" autoPlay loop muted playsInline>
           <source src="videos/portfolio-bg.mp4" type="video/mp4" />
           Tu navegador no soporta videos HTML5.
         </video>
+        <div className="absolute inset-0 bg-black/60" />
 
-        <div className="absolute inset-0 bg-black/50" />
+        <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} className="relative z-10 text-center px-6 max-w-3xl mx-auto">
+          <h1 className="text-white text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4 leading-tight">{t('portfolio.title')}</h1>
+          <p className="text-white/90 text-lg md:text-xl mb-6">{t('portfolio.subtitle')}</p>
+          <Link to="/projects" className="no-underline inline-block bg-indigo-600 hover:bg-indigo-700 text-white text-lg font-semibold py-3 px-6 rounded-full transition">
+            {t('portfolio.cta_button')}
+          </Link>
+        </motion.div>
+      </section>
 
-        <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-          <h1 className="text-white text-4xl md:text-6xl font-extrabold mb-4 fade-in">{t('portfolio.title')}</h1>
-          <p className="text-white/90 text-lg md:text-xl mb-8 slide-up">{t('portfolio.subtitle')}</p>
+      {/* SECCIÓN DE PROYECTOS */}
+      <section id="projects" className="py-20 bg-gray-50 dark:bg-gray-900">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+            {(t('portfolio.demos', { returnObjects: true }) as Project[]).map((project, i) => (
+              <motion.div
+                key={project.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                viewport={{ once: true }}
+                className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover:scale-[1.03] transition duration-300"
+              >
+                <div className="relative group">
+                  <img src={project.image} alt={project.title} className="w-full h-56 object-cover" />
+                  <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition flex flex-col justify-center items-center text-center px-4">
+                    <h3 className="text-white text-xl font-bold mb-2">{project.title}</h3>
+                    <p className="text-gray-200 text-sm mb-4">{project.description}</p>
+                    <Link to="/projects" className="no-underline bg-white text-black px-4 py-2 rounded-full text-sm font-medium hover:bg-gray-100 transition">
+                      {labelSeeProject}
+                    </Link>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Sección de proyectos */}
-      <section className="py-20 bg-gray-50 dark:bg-gray-900">
-        <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-10">
-          {(t('portfolio.demos', { returnObjects: true }) as Project[]).map(project => (
-            <div key={project.title} className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 hover:scale-105">
-              <img src={project.image} alt={project.title} className="w-full h-56 object-cover" />
-              <div className="p-6 text-center">
-                <h3 className="text-2xl font-bold mb-2">{project.title}</h3>
-                <p className="text-gray-600 dark:text-gray-300">{project.description}</p>
-              </div>
-            </div>
-          ))}
-        </div>
+      {/* SECCIÓN DE CONFIANZA */}
+      <section className="bg-white dark:bg-gray-800 py-16">
+        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1 }} viewport={{ once: true }} className="max-w-5xl mx-auto text-center px-6">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-10 text-gray-900 dark:text-white">{t('portfolio.trusted_by')}</h2>
+          <div className="flex flex-wrap justify-center gap-10 opacity-80">
+            <img src="/images/brands/mayoral.png" className="h-10" alt="Mayoral Moda Infantil" />
+            <img src="/images/brands/iberia.png" className="h-10" alt="Iberia Airlines" />
+            <img src="/images/brands/cupra.png" className="h-10" alt="Seat Cupra" />
+            <img src="/images/brands/roche.jpg" className="h-10" alt="Roche Diabetes Care" />
+            <img src="/images/brands/leroy.jpg" className="h-10" alt="Leroy Merlin" />
+          </div>
+        </motion.div>
       </section>
 
-      {/* CTA final - slider de imágenes a ancho completo */}
-      <section className="h-[50vh] relative flex items-center justify-center overflow-hidden">
+      {/* CTA FINAL */}
+      <section className="relative h-[50vh] sm:h-[60vh] flex items-center justify-center overflow-hidden">
         {ctaImages.map((img, index) => (
           <img
             key={index}
@@ -64,6 +95,13 @@ export default function Portfolio() {
             className={`absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-700 ${index === currentIndex ? 'opacity-100' : 'opacity-0'}`}
           />
         ))}
+        <div className="absolute inset-0 bg-black/50" />
+        <motion.div initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ duration: 1 }} className="relative z-10 text-center px-6">
+          <h2 className="text-white text-3xl sm:text-4xl md:text-5xl font-bold mb-6 drop-shadow-lg">{t('portfolio.final_cta_title')}</h2>
+          <Link to="/contact" className="no-underline bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-8 py-3 rounded-full text-lg transition">
+            {t('portfolio.contact_cta')}
+          </Link>
+        </motion.div>
       </section>
     </main>
   );

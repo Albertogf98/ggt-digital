@@ -6,6 +6,7 @@ import Portfolio from './pages/Portfolio';
 import Services from './pages/Services';
 import About from './pages/About';
 import Footer from './components/footer/Footer';
+import Projects from './pages/Projects';
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
           <Route index path="/" element={<Home />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/projects" element={<Projects />} />
           <Route path="/services" element={<Services />} />
           <Route path="/about" element={<About />} />
         </Routes>

@@ -88,6 +88,11 @@
   "portfolio": {
     "title": "Our Portfolio",
     "subtitle": "Discover some of the projects we’ve worked on. Modern, responsive, and optimized for all devices.",
+    "cta_button": "See our projects",
+    "view_project": "See project",
+    "trusted_by": "Brands I have worked with",
+    "final_cta_title": "Ready to boost you brand?",
+    "contact_cta": "Speak about your project",
     "demos": [
       {
         "title": "E-Commerce Store",
@@ -118,6 +123,35 @@
         "title": "Marketing Campaign Microsite",
         "image": "/images/mark.jpg",
         "description": "A small, focused website built to support marketing campaigns with effective calls to action."
+      }
+    ]
+  },
+
+  "projects": {
+    "title": "Projects",
+    "subtitle": "A selection of our most outstanding work",
+    "view_project": "View project",
+    "cta_title": "Do you want your idea to become the next success story?",
+    "cta_button": "Let's talk",
+    "list": [
+      {
+        "title": "Website redesign for Google",
+        "image": "/images/portfolio/google.jpg",
+        "description": "Comprehensive redesign of the partners website, focused on accessibility and performance.",
+        "technologies": ["React", "TailwindCSS", "TypeScript"],
+        "link": "https://www.google.com"
+      },
+      {
+        "title": "Mobile app for startups",
+        "image": "/images/portfolio/mac.jpg",
+        "description": "Cross-platform app designed for entrepreneurs looking to launch their digital business.",
+        "technologies": ["React Native", "Expo", "Firebase"]
+      },
+      {
+        "title": "USA digital campaign",
+        "image": "/images/portfolio/usa.jpg",
+        "description": "Creative strategy and design for a nationwide advertising campaign in the U.S.",
+        "technologies": ["Next.js", "Figma", "Analytics"]
       }
     ]
   },
