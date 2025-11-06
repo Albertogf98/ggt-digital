@@ -21,7 +21,6 @@ function LanguageButton({ lang, currentLang, onClick, mobile = false }: { lang: 
   );
 }
 
-// 🔸 Menú escritorio
 function DesktopMenu({ links, t, i18n, changeLanguage }: any) {
   const [langMenuOpen, setLangMenuOpen] = useState(false);
 
