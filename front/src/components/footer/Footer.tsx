@@ -47,7 +47,7 @@ export default function Footer() {
 
         {/* Columna 2 - Enlaces rápidos */}
         <FooterColumn title={t('footer.fastLinks.title')}>
-          <ul className="space-y-1">
+          <ul className="space-y-1 list-none">
             {LINKS.map(link => (
               <li key={link.to}>
                 <Link to={link.to} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="text-gray-300 hover:text-white transition-colors no-underline">
@@ -60,7 +60,7 @@ export default function Footer() {
 
         {/* Columna 3 - Servicios */}
         <FooterColumn title={t('footer.services.title')}>
-          <ul className="space-y-1 text-gray-400">
+          <ul className="space-y-1 text-gray-400 list-none">
             {services.map(service => (
               <li key={service}>{service}</li>
             ))}
@@ -69,7 +69,7 @@ export default function Footer() {
 
         {/* Columna 4 - Contacto */}
         <FooterColumn title={t('footer.contact.title')}>
-          <ul className="space-y-1 text-gray-400">
+          <ul className="space-y-1 text-gray-400 list-none">
             <li>📍 Málaga, {t('footer.contact.country')}</li>
             <li>📞 +34 676 786 232</li>
             <li>📧 ggtdigitals@gmail.com</li>
