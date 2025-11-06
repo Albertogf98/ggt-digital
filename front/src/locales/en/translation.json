@@ -1,5 +1,6 @@
 {
   "brand": "GgT Digital",
+
   "nav": {
     "home": "Home",
     "services": "Services",
@@ -62,6 +63,21 @@
         "icon": "🎨"
       }
     ],
+    "beneficts": {
+      "title": "Why choose GgT Digital?",
+      "sectionOne": {
+        "title": "Real results",
+        "text": "We focus on strategies that drive your growth, not just on aesthetics."
+      },
+      "sectionTwo": {
+        "title": "Personalized approach",
+        "text": "Every project is unique. We guide you step by step with close and dedicated attention."
+      },
+      "sectionThree": {
+        "title": "Trust and reliability",
+        "text": "We meet deadlines, protect your brand, and guarantee continuous support."
+      }
+    },
     "section": {
       "title": "Ready to elevate your business?",
       "description": "Contact us today and let’s create a digital presence that drives results. Our solutions are modern, clean, and tailored to your business needs.",

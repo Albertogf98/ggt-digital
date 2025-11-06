@@ -64,6 +64,21 @@
         "icon": "🎨"
       }
     ],
+    "beneficts": {
+      "title": "¿Por qué elegir GgT Digital?",
+      "sectionOne": {
+        "title": "Resultados reales",
+        "text": "Nos enfocamos en estrategias que impulsan tu crecimiento, no solo en estética."
+      },
+      "sectionTwo": {
+        "title": "Trato personalizado",
+        "text": "Cada proyecto es único. Te acompañamos paso a paso con atención cercana."
+      },
+      "sectionThree": {
+        "title": "Confianza y seguridad",
+        "text": "Cumplimos plazos, cuidamos tu marca y garantizamos soporte continuo."
+      }
+    },
     "section": {
       "title": "¿Listo para impulsar tu negocio?",
       "description": "Contáctanos hoy y creemos una presencia digital que genere resultados. Nuestras soluciones son modernas, limpias y adaptadas a las necesidades de tu negocio.",
