@@ -9,14 +9,15 @@
 -------------------------- */
 
 @layer base {
-  /* 🌍 Reglas globales para ocupar todo el ancho  */
+  /* 🌍 Reglas globales para ocupar todo el ancho y altura completa */
   * {
     @apply w-full box-border;
   }
 
   html,
   body {
-    @apply w-full min-h-screen overflow-x-hidden;
+    @apply w-full h-screen bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-100 antialiased overflow-x-hidden;
+    scroll-behavior: smooth;
   }
 
   main,
@@ -26,14 +27,6 @@
   nav,
   div {
     @apply w-full;
-  }
-
-  html {
-    scroll-behavior: smooth;
-  }
-
-  body {
-    @apply bg-gray-50 text-gray-800 antialiased transition-colors duration-300 dark:bg-gray-900 dark:text-gray-100;
   }
 
   h1,
@@ -74,6 +67,15 @@
 
   .section-title {
     @apply text-3xl md:text-4xl font-extrabold mb-6 text-center;
+  }
+
+  /* Video backgrounds */
+  .video-bg {
+    @apply absolute top-0 left-0 w-full h-full object-cover;
+  }
+
+  .overlay-dark {
+    @apply absolute inset-0 bg-black/50;
   }
 }
 
@@ -127,15 +129,15 @@
       transform: translateY(0);
     }
   }
-}
 
-@keyframes slideDown {
-  0% {
-    transform: translateY(-20px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
+  @keyframes slideDown {
+    0% {
+      transform: translateY(-20px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
   }
 }
