@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom'; // 👈 Importante
+import { Link } from 'react-router-dom';
 
 type Project = {
   title: string;
