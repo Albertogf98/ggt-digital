@@ -206,10 +206,14 @@
       "weekendSunday": "Domingo: Cerrado"
     },
     "form": {
-      "name": "Tu nombre",
+      "name": "Tu nombre o Empresa",
       "email": "Tu correo electrónico",
       "message": "Tu mensaje",
-      "button": "Enviar mensaje"
+      "button": "Enviar mensaje",
+      "message_after": {
+        "title": "¡Gracias!",
+        "message": "Hemos recibido tu mensaje, nos pondremos en contacto contigo lo antes posible."
+      }
     }
   }
 }

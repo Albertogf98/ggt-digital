@@ -205,10 +205,14 @@
       "weekendSunday": "Sunday: Closed"
     },
     "form": {
-      "name": "Your name",
+      "name": "Your name or Company",
       "email": "Your email",
       "message": "Your message",
-      "button": "Send Message"
+      "button": "Send Message",
+      "message_after": {
+        "title": "Thank you!",
+        "message": "We received your message and will get back to you shortly."
+      }
     }
   }
 }
