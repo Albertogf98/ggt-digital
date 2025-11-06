@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <main className="flex flex-col overflow-x-hidden">
       {/* Hero con video */}
-      <section className="relative min-h-[70vh] md:h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[50vh] md:min-h-[70vh] flex items-center justify-center overflow-hidden">
         <video className="absolute top-0 left-0 w-full h-full object-cover" autoPlay loop muted playsInline>
           <source src="videos/corporate-bg.mp4" type="video/mp4" />
           Tu navegador no soporta videos HTML5.
@@ -41,7 +41,7 @@ export default function Home() {
       </section>
 
       {/* CTA final con video o imagen */}
-      <section className="relative min-h-[60vh] md:h-[80vh] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[50vh] md:min-h-[70vh] flex items-center justify-center overflow-hidden">
         <video className="absolute top-0 left-0 w-full h-full object-cover" autoPlay loop muted playsInline>
           <source src="videos/cta-bg.mp4" type="video/mp4" />
           Tu navegador no soporta videos HTML5.
@@ -53,7 +53,7 @@ export default function Home() {
         <div className="relative z-10 text-center px-4 max-w-3xl mx-auto">
           <h1 className="text-white text-3xl sm:text-4xl md:text-6xl font-extrabold mb-4">{t('home.section.title')}</h1>
           <p className="text-white/90 text-base sm:text-lg md:text-xl mb-6 sm:mb-8">{t('home.section.description')}</p>
-          <Link to="/contact" className="btn-primary text-base sm:text-lg px-5 py-3 rounded-md inline-block" style={{ textDecoration: 'none' }}>
+          <Link to="/contact" className="btn-primary text-base sm:text-lg px-12 py-3 rounded-md inline-block w-full sm:w-auto" style={{ textDecoration: 'none' }}>
             {t('home.section.button')}
           </Link>
         </div>

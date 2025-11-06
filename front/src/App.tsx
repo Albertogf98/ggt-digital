@@ -9,10 +9,9 @@ import Footer from './components/footer/Footer';
 
 export default function App() {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="w-screen min-h-screen flex flex-col">
       <Navbar />
-
-      <main>
+      <main className="flex-1 w-screen overflow-x-hidden">
         <Routes>
           <Route index path="/" element={<Home />} />
           <Route path="/contact" element={<Contact />} />
