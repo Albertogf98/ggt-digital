@@ -92,7 +92,7 @@ export default function Services() {
           <p className="text-white/90 text-base sm:text-lg md:text-xl mb-6">{t('services.section.description')}</p>
           <Link
             to="/contact"
-            className="inline-block bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-700 hover:to-indigo-800 text-white font-semibold text-lg px-10 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+            className="no-underline inline-block bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-700 hover:to-indigo-800 text-white font-semibold text-lg px-10 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
           >
             {t('services.section.button')}
           </Link>

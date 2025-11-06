@@ -72,14 +72,48 @@ export default function Portfolio() {
       </section>
 
       {/* SECCIÓN DE CONFIANZA */}
-      <section className="bg-white dark:bg-gray-800 py-16">
-        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1 }} viewport={{ once: true }} className="max-w-5xl mx-auto text-center px-6">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-10 text-gray-900 dark:text-white">{t('portfolio.trusted_by')}</h2>
-          <div className="flex flex-wrap justify-center gap-10 opacity-80">
-            {['accenture.png', 'knowmadmood.png', 'sogeti.png', 'Globant.png', 'mayoral.png', 'iberia.png', 'cupra.png', 'roche.jpg', 'leroy.jpg'].map(logo => (
-              <div key={logo} className="w-50  h-50 flex items-center justify-center bg-white rounded-lg">
-                <img src={`/images/brands/${logo}`} alt={logo} className="object-contain w-full h-full" />
-              </div>
+      <section className="relative py-20 overflow-hidden">
+        {/* Fondo degradado animado en tonos índigo */}
+        <div className="absolute inset-0 bg-gradient-to-br from-indigo-50 via-white to-indigo-100 dark:from-gray-900 dark:via-gray-800 dark:to-indigo-950 animate-gradient" />
+
+        {/* Partículas de luz */}
+        <div className="absolute inset-0 pointer-events-none">
+          {[...Array(15)].map((_, i) => (
+            <span
+              key={i}
+              className="absolute w-2 h-2 bg-indigo-400/40 rounded-full blur-sm animate-float"
+              style={{
+                top: `${Math.random() * 100}%`,
+                left: `${Math.random() * 100}%`,
+                animationDelay: `${Math.random() * 5}s`,
+                animationDuration: `${3 + Math.random() * 5}s`,
+              }}
+            />
+          ))}
+        </div>
+
+        {/* Contenido principal */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+          className="relative z-10 max-w-6xl mx-auto text-center px-6"
+        >
+          <h2 className="text-3xl sm:text-4xl font-extrabold mb-12 text-gray-900 dark:text-white drop-shadow-sm">{t('portfolio.trusted_by')}</h2>
+
+          <div className="flex flex-wrap justify-center gap-10">
+            {['accenture.svg', 'knowmadmood.svg', 'sogeti.svg', 'globant.svg', 'mayoral.svg', 'iberia.svg', 'cupra.svg', 'roche.svg', 'leroy.svg'].map((logo, i) => (
+              <motion.div
+                key={logo}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.4, delay: i * 0.1 }}
+                viewport={{ once: true }}
+                className="w-32 h-32 sm:w-40 sm:h-40 flex items-center justify-center bg-white/70 dark:bg-gray-900/60 backdrop-blur-md rounded-2xl shadow-lg hover:shadow-indigo-500/40 hover:scale-105 transition-all duration-300"
+              >
+                <img src={`/images/brands/${logo}`} alt={logo} className="object-contain w-4/5 h-4/5 opacity-90 hover:opacity-100 transition" />
+              </motion.div>
             ))}
           </div>
         </motion.div>
