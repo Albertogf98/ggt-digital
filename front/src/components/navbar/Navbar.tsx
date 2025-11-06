@@ -1,10 +1,10 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import clsx from 'clsx';
 import { LINKS } from '../../constants/links';
+import { X } from 'lucide-react';
 
-// Botón de selección de idioma reutilizable
 function LanguageButton({ lang, currentLang, onClick, mobile = false }: { lang: string; currentLang: string; onClick: () => void; mobile?: boolean }) {
   const isActive = lang === currentLang;
   const baseClasses = mobile
@@ -21,7 +21,7 @@ function LanguageButton({ lang, currentLang, onClick, mobile = false }: { lang: 
   );
 }
 
-// Menú de escritorio
+// 🔸 Menú escritorio
 function DesktopMenu({ links, t, i18n, changeLanguage }: any) {
   const [langMenuOpen, setLangMenuOpen] = useState(false);
 
@@ -59,7 +59,7 @@ function DesktopMenu({ links, t, i18n, changeLanguage }: any) {
   );
 }
 
-// Menú móvil
+// 🔸 Menú móvil
 function MobileMenu({ links, t, i18n, changeLanguage, closeMenu }: any) {
   const [closing, setClosing] = useState(false);
 
@@ -73,21 +73,36 @@ function MobileMenu({ links, t, i18n, changeLanguage, closeMenu }: any) {
     setTimeout(() => closeMenu(), 300);
   };
 
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, []);
+
   return (
     <div
       className={clsx(
-        'md:hidden fixed top-0 left-0 w-full h-full flex flex-col items-center gap-6 py-8 transition-transform duration-300 z-50 bg-gray-50 dark:bg-gray-900',
+        'md:hidden fixed inset-0 flex flex-col items-center justify-start gap-6 py-10 transition-all duration-300 z-[60] bg-gray-50 dark:bg-gray-900 overflow-y-auto',
         closing ? 'animate-slideUp' : 'animate-slideDown'
       )}
     >
+      {/* 🔹 Botón de cerrar visible arriba */}
+      <button onClick={handleCloseMenu} className="absolute top-5 right-6 text-gray-800 dark:text-gray-200 hover:text-blue-500 transition" aria-label="Cerrar menú">
+        <X size={30} />
+      </button>
+
       {links.map((item: any) => (
         <NavLink
-          style={{ textDecoration: 'none' }}
           key={item.to}
           to={item.to}
           onClick={handleCloseMenu}
+          style={{ textDecoration: 'none' }}
           className={({ isActive }) =>
-            clsx('border-t text-gray-800 dark:text-gray-100 hover:text-blue-500 text-lg font-medium transition-colors', isActive && 'text-blue-500 font-semibold')
+            clsx(
+              'text-gray-800 dark:text-gray-100 hover:text-blue-500 text-lg font-medium transition-colors border-b border-gray-200 dark:border-gray-700 w-full text-center py-3',
+              isActive && 'text-blue-500 font-semibold'
+            )
           }
         >
           {t(item.key)}
@@ -95,7 +110,7 @@ function MobileMenu({ links, t, i18n, changeLanguage, closeMenu }: any) {
       ))}
 
       {/* Selector idioma móvil */}
-      <div className="flex gap-4 mt-6 p-3 bg-gray-200 dark:bg-gray-800 rounded-2xl shadow-lg">
+      <div className="flex gap-4 mt-8 p-3 bg-gray-200 dark:bg-gray-800 rounded-2xl shadow-lg">
         <LanguageButton lang="es" currentLang={i18n.language} onClick={() => handleLangChange('es')} mobile />
         <LanguageButton lang="en" currentLang={i18n.language} onClick={() => handleLangChange('en')} mobile />
       </div>
@@ -103,7 +118,7 @@ function MobileMenu({ links, t, i18n, changeLanguage, closeMenu }: any) {
   );
 }
 
-// Navbar principal
+// 🔸 Navbar principal
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const { t, i18n } = useTranslation();
@@ -116,24 +131,20 @@ export default function Navbar() {
   const bars = [menuOpen ? 'rotate-45 translate-y-[6px]' : '', menuOpen ? 'opacity-0' : '', menuOpen ? '-rotate-45 -translate-y-[6px]' : ''];
 
   return (
-    <header className="sticky top-0 z-50 bg-gray-50 dark:bg-gray-900">
-      <nav className="max-w-6xl mx-auto flex items-center justify-between py-4 px-6 md:px-4">
+    <header className="sticky top-0 z-50 bg-gray-50 dark:bg-gray-900 shadow-sm">
+      <nav className="max-w-6xl mx-auto flex items-center justify-between py-3 px-5 md:px-4">
         {/* Logo */}
         <Link to="/" className="text-2xl font-extrabold tracking-tight text-gray-800 dark:text-gray-100 hover:text-blue-500 transition-colors no-underline">
-          GgT Digital
+          {t('brand')}
         </Link>
 
         {/* Menú escritorio */}
         <DesktopMenu links={LINKS} t={t} i18n={i18n} changeLanguage={changeLanguage} />
 
         {/* Botón hamburguesa */}
-        <button
-          className="md:hidden flex flex-col justify-center items-center w-10 h-10 rounded-md hover:bg-gray-200 dark:hover:bg-gray-800 transition"
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Abrir menú"
-        >
+        <button className="md:hidden flex flex-col justify-center items-center w-10 h-10 rounded-md transition" onClick={() => setMenuOpen(!menuOpen)} aria-label="Abrir menú">
           {bars.map((bar, i) => (
-            <span key={i} className={clsx('block w-6 h-[2px] bg-gray-800 dark:bg-gray-100 my-[5px] transition-all duration-300', bar)} />
+            <span key={i} className={clsx('block w-6 h-[2px] bg-gray-800 dark:bg-gray-100 my-[4px] transition-all duration-300', bar)} />
           ))}
         </button>
       </nav>

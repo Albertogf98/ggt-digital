@@ -79,7 +79,7 @@ export default function Footer() {
 
       {/* Línea inferior */}
       <div className="border-t border-gray-700 mt-8 pt-4 text-center text-xs sm:text-sm text-gray-500">
-        © {new Date().getFullYear()} GgT Digital — {t('footer.copyrigth.description')}
+        © {new Date().getFullYear()} {t('brand')} — {t('footer.copyrigth.description')}
       </div>
     </footer>
   );
