@@ -84,7 +84,7 @@ export default function Services() {
       {/* CTA FINAL */}
       <section className="relative flex flex-col md:flex-row items-center justify-center overflow-hidden py-16 px-4 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-700">
         <div className="flex-1 mb-8 md:mb-0 flex justify-center">
-          <img src="/images/service-photo.jpg" alt="Business growth" className="w-full max-w-sm sm:max-w-md rounded-xl shadow-xl" />
+          <img src="/images/service-photo.jpg" alt="Business growth" className="w-full max-w-sm sm:max-w-md rounded-xl shadow-xl object-contain md:object-cover" />
         </div>
 
         <div className="flex-1 text-center md:text-left max-w-xl">

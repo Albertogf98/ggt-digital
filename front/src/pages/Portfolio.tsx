@@ -76,11 +76,11 @@ export default function Portfolio() {
         <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1 }} viewport={{ once: true }} className="max-w-5xl mx-auto text-center px-6">
           <h2 className="text-2xl sm:text-3xl font-bold mb-10 text-gray-900 dark:text-white">{t('portfolio.trusted_by')}</h2>
           <div className="flex flex-wrap justify-center gap-10 opacity-80">
-            <img src="/images/brands/mayoral.png" className="h-10" alt="Mayoral Moda Infantil" />
-            <img src="/images/brands/iberia.png" className="h-10" alt="Iberia Airlines" />
-            <img src="/images/brands/cupra.png" className="h-10" alt="Seat Cupra" />
-            <img src="/images/brands/roche.jpg" className="h-10" alt="Roche Diabetes Care" />
-            <img src="/images/brands/leroy.jpg" className="h-10" alt="Leroy Merlin" />
+            {['accenture.png', 'knowmadmood.png', 'sogeti.png', 'Globant.png', 'mayoral.png', 'iberia.png', 'cupra.png', 'roche.jpg', 'leroy.jpg'].map(logo => (
+              <div key={logo} className="w-50  h-50 flex items-center justify-center bg-white rounded-lg">
+                <img src={`/images/brands/${logo}`} alt={logo} className="object-contain w-full h-full" />
+              </div>
+            ))}
           </div>
         </motion.div>
       </section>
