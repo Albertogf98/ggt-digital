@@ -14,7 +14,10 @@
     "fastLinks": {
       "title": "Enlaces rápidos"
     },
-    "services": ["Diseño Web", "Marketing Digital", "Branding e Identidad", "Optimización SEO"],
+    "services": {
+      "title": "Servicios",
+      "ourServices": ["Diseño Web", "Marketing Digital", "Branding e Identidad", "Optimización SEO"]
+    },
 
     "contact": {
       "title": "Contáctanos",
@@ -32,6 +35,7 @@
       { "title": "Branding & Identidad", "text": "Creamos la identidad que transmite tu valor." }
     ],
     "section": {
+      "tagline": "¿Listo para hacer crecer tu marca?",
       "title": "Creamos páginas web modernas y profesionales",
       "description": "Ofrecemos diseños web limpios, adaptados a tus necesidades, para potenciar tu presencia online y atraer más clientes con una imagen sólida y confiable.",
       "button": "Contáctanos"

@@ -14,7 +14,10 @@
     "fastLinks": {
       "title": "Quick Links"
     },
-    "services": ["Web Design", "Digital Marketing", "Branding & Identity", "SEO Optimization"],
+    "services": {
+      "title": "Services",
+      "ourServices": ["Web Design", "Digital Marketing", "Branding & Identity", "SEO Optimization"]
+    },
     "contact": {
       "title": "Contact Us",
       "country": "Spain"
@@ -31,6 +34,7 @@
       { "title": "Branding & Identity", "text": "We create an identity that conveys your value." }
     ],
     "section": {
+      "tagline": "Ready to grow your brand?",
       "title": "We create modern and professional websites",
       "description": "We offer clean web designs tailored to your needs, to enhance your online presence and attract more clients with a solid and trustworthy image.",
       "button": "Contact Us"

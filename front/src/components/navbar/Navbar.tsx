@@ -87,7 +87,7 @@ function MobileMenu({ links, t, i18n, changeLanguage, closeMenu }: any) {
           to={item.to}
           onClick={handleCloseMenu}
           className={({ isActive }) =>
-            clsx('text-gray-800 dark:text-gray-100 hover:text-blue-500 text-lg font-medium transition-colors', isActive && 'text-blue-500 font-semibold')
+            clsx('border-t text-gray-800 dark:text-gray-100 hover:text-blue-500 text-lg font-medium transition-colors', isActive && 'text-blue-500 font-semibold')
           }
         >
           {t(item.key)}
