@@ -136,21 +136,20 @@
     "cta_button": "Hablemos",
     "list": [
       {
-        "title": "Rediseño web para Google",
-        "image": "/images/portfolio/google.jpg",
-        "description": "Proyecto de rediseño integral del sitio de partners, con foco en accesibilidad y rendimiento.",
-        "technologies": ["React", "TailwindCSS", "TypeScript"],
-        "link": "https://www.google.com"
+        "title": "Rediseño web para GgT Digital",
+        "description": "Proyecto de integral del sitio de partners, con foco en accesibilidad y rendimiento.",
+        "technologies": ["Wordpress", "CMS", "SEO"],
+        "link": "https://ggtdigitals.com/"
       },
       {
         "title": "Aplicación móvil para startups",
-        "image": "/images/portfolio/mac.jpg",
+        "link": "/images/portfolio/mac.jpg",
         "description": "App multiplataforma diseñada para emprendedores que buscan lanzar su negocio digital.",
         "technologies": ["React Native", "Expo", "Firebase"]
       },
       {
         "title": "Campaña digital USA",
-        "image": "/images/portfolio/usa.jpg",
+        "link": "/images/portfolio/usa.jpg",
         "description": "Estrategia creativa y diseño para una campaña publicitaria nacional en EE.UU.",
         "technologies": ["Next.js", "Figma", "Analytics"]
       }

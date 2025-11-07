@@ -37,7 +37,7 @@ export default function Services() {
           <p className="text-white/90 text-lg md:text-xl mb-8">{t('services.subtitle')}</p>
           <Link
             to="/contact"
-            className="inline-block bg-gradient-to-r from-blue-600 to-indigo-700 text-white font-semibold px-8 py-3 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+            className="no-underline inline-block bg-gradient-to-r from-blue-600 to-indigo-700 text-white font-semibold px-8 py-3 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
           >
             {t('services.section.button')}
           </Link>
@@ -82,20 +82,24 @@ export default function Services() {
       </section>
 
       {/* CTA FINAL */}
-      <section className="relative flex flex-col md:flex-row items-center justify-center overflow-hidden py-16 px-4 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-700">
-        <div className="flex-1 mb-8 md:mb-0 flex justify-center">
-          <img src="/images/service-photo.jpg" alt="Business growth" className="w-full max-w-sm sm:max-w-md rounded-xl shadow-xl object-contain md:object-cover" />
-        </div>
+      <section className="relative flex flex-col md:flex-row items-center justify-center overflow-hidden py-16 px-6 lg:px-20 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-700">
+        <div className="w-full max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
+          {/* Imagen */}
+          <div className="flex-1 flex justify-center">
+            <img src="/images/service-photo.jpg" alt="Business growth" className="w-full max-w-sm sm:max-w-md lg:max-w-lg rounded-xl shadow-xl object-contain md:object-cover" />
+          </div>
 
-        <div className="flex-1 text-center md:text-left max-w-xl">
-          <h2 className="text-3xl sm:text-4xl font-extrabold mb-4">{t('services.section.title')}</h2>
-          <p className="text-white/90 text-base sm:text-lg md:text-xl mb-6">{t('services.section.description')}</p>
-          <Link
-            to="/contact"
-            className="no-underline inline-block bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-700 hover:to-indigo-800 text-white font-semibold text-lg px-10 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
-          >
-            {t('services.section.button')}
-          </Link>
+          {/* Texto */}
+          <div className="flex-1 text-center md:text-left max-w-xl">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-4">{t('services.section.title')}</h2>
+            <p className="text-white/90 text-base sm:text-lg md:text-xl mb-6 leading-relaxed">{t('services.section.description')}</p>
+            <Link
+              to="/contact"
+              className="no-underline inline-block bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-700 hover:to-indigo-800 text-white font-semibold text-lg px-10 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+            >
+              {t('services.section.button')}
+            </Link>
+          </div>
         </div>
       </section>
     </main>

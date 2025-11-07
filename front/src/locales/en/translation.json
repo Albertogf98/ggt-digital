@@ -135,23 +135,23 @@
     "cta_button": "Let's talk",
     "list": [
       {
-        "title": "Website redesign for Google",
+        "title": "Website redesign for GgT Digital",
         "image": "/images/portfolio/google.jpg",
         "description": "Comprehensive redesign of the partners website, focused on accessibility and performance.",
-        "technologies": ["React", "TailwindCSS", "TypeScript"],
-        "link": "https://www.google.com"
+        "technologies": ["Wordpress", "CMS", "SEO"],
+        "link": "https://ggtdigitals.com/"
       },
       {
         "title": "Mobile app for startups",
-        "image": "/images/portfolio/mac.jpg",
+        "link": "/images/portfolio/mac.jpg",
         "description": "Cross-platform app designed for entrepreneurs looking to launch their digital business.",
         "technologies": ["React Native", "Expo", "Firebase"]
       },
       {
         "title": "USA digital campaign",
-        "image": "/images/portfolio/usa.jpg",
+        "link": "/images/portfolio/usa.jpg",
         "description": "Creative strategy and design for a nationwide advertising campaign in the U.S.",
-        "technologies": ["Next.js", "Figma", "Analytics"]
+        "technologies": ["Next.js", "React", "Analytics"]
       }
     ]
   },
