@@ -17,7 +17,7 @@ export default function Contact() {
   };
 
   return (
-    <main className="overflow-x-hidden">
+    <main className="overflow-x-hidden" id="contact">
       {/* Hero */}
       <section className="relative h-[90vh] sm:h-[80vh] flex items-center justify-center overflow-hidden">
         <video className="absolute top-0 left-0 w-full h-full object-cover" autoPlay loop muted playsInline>

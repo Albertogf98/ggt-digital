@@ -23,7 +23,7 @@ export default function Portfolio() {
   }, []);
 
   return (
-    <main className="overflow-x-hidden">
+    <main className="overflow-x-hidden" id="portfolio">
       {/* HERO SECTION */}
       <section className="relative h-[70vh] sm:h-[80vh] flex items-center justify-center overflow-hidden">
         <video className="absolute top-0 left-0 w-full h-full object-cover" autoPlay loop muted playsInline>

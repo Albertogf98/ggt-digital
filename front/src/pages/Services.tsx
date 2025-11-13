@@ -24,7 +24,7 @@ export default function Services() {
   }));
 
   return (
-    <main className="overflow-x-hidden bg-gray-900 text-white">
+    <main className="overflow-x-hidden bg-gray-900 text-white" id="services">
       {/* HERO */}
       <section className="relative min-h-[60vh] md:min-h-[80vh] flex items-center justify-center overflow-hidden">
         <video className="absolute top-0 left-0 w-full h-full object-cover" autoPlay loop muted playsInline>

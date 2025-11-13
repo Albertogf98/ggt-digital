@@ -14,7 +14,7 @@ export default function Home() {
   const services = t('home.cards', { returnObjects: true }) as Card[];
 
   return (
-    <main className="flex flex-col overflow-x-hidden">
+    <main className="flex flex-col overflow-x-hidden" id="home">
       {/* 🟦 HERO con video */}
       <section className="relative min-h-[60vh] md:min-h-[80vh] flex items-center justify-center overflow-hidden">
         <video className="absolute top-0 left-0 w-full h-full object-cover" autoPlay loop muted playsInline>

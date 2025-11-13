@@ -17,7 +17,7 @@ export default function Projects() {
   const projects: Project[] = t('projects.list', { returnObjects: true }) as Project[];
 
   return (
-    <main className="overflow-x-hidden bg-gray-50 dark:bg-gray-900 min-h-screen">
+    <main className="overflow-x-hidden bg-gray-50 dark:bg-gray-900 min-h-screen" id="projects">
       {/* HERO */}
       <section className="relative h-[70vh] sm:h-[80vh] flex items-center justify-center overflow-hidden">
         <video className="absolute top-0 left-0 w-full h-full object-cover" autoPlay loop muted playsInline>

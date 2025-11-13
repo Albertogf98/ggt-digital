@@ -13,7 +13,7 @@ export default function About() {
   const { t } = useTranslation();
 
   return (
-    <main className="overflow-x-hidden">
+    <main className="overflow-x-hidden" id="about">
       {/* Hero */}
       <section className="relative h-screen md:h-[80vh] flex items-center justify-center overflow-hidden">
         <video className="absolute top-0 left-0 w-full h-full object-cover" autoPlay loop muted playsInline>
