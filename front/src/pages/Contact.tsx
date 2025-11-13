@@ -22,7 +22,7 @@ export default function Contact() {
       <section className="relative h-[90vh] sm:h-[80vh] flex items-center justify-center overflow-hidden">
         <video className="absolute top-0 left-0 w-full h-full object-cover" autoPlay loop muted playsInline>
           <source src="videos/contact-bg.mp4" type="video/mp4" />
-          Tu navegador no soporta videos HTML5.
+          Tu navegador no soporta videos HTML5
         </video>
         <div className="absolute inset-0 bg-black/50" />
         <div className="relative z-10 text-center px-4 sm:px-6 max-w-4xl mx-auto">
