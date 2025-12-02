@@ -213,6 +213,11 @@
         "title": "Thank you!",
         "message": "We received your message and will get back to you shortly."
       }
+    },
+
+    "cookie": {
+      "description": "Usamos cookies y otros datos para mejorar tu experiencia. Al continuar navegando, aceptas nuestra política de privacidad.",
+      "accept": "Aceptar"
     }
   }
 }

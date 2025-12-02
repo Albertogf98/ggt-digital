@@ -7,22 +7,25 @@ import Services from './pages/Services';
 import About from './pages/About';
 import Footer from './components/footer/Footer';
 import Projects from './pages/Projects';
+import { ThemeProvider } from './themes/ThemeProvider';
 
 export default function App() {
   return (
-    <div className="w-screen min-h-screen flex flex-col">
-      <Navbar />
-      <main className="flex-1 w-screen overflow-x-hidden">
-        <Routes>
-          <Route index path="/" element={<Home />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/portfolio" element={<Portfolio />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/about" element={<About />} />
-        </Routes>
-      </main>
-      <Footer />
-    </div>
+    <ThemeProvider>
+      <div className="w-screen min-h-screen flex flex-col">
+        <Navbar />
+        <main className="flex-1 w-screen overflow-x-hidden">
+          <Routes>
+            <Route index path="/" element={<Home />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/portfolio" element={<Portfolio />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/about" element={<About />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </ThemeProvider>
   );
 }

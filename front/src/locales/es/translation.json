@@ -214,5 +214,9 @@
         "message": "Hemos recibido tu mensaje, nos pondremos en contacto contigo lo antes posible."
       }
     }
+  },
+  "cookie": {
+    "description": "We use cookies and other data to improve your experience. By continuing to browse, you agree to our privacy policy.",
+    "accept": "Accept"
   }
 }
