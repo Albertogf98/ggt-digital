@@ -2,10 +2,12 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '../themes/ThemeProvider';
+import emailjs from '@emailjs/browser';
 
 export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
   const { t } = useTranslation();
   const { builder } = useTheme();
 
@@ -13,9 +15,19 @@ export default function Contact() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setLoading(true);
+
+    try {
+      await emailjs.send(import.meta.env.VITE_SERVICE, import.meta.env.VITE_TEMPLATE, formData, import.meta.env.VITE_KEY);
+      setSubmitted(true);
+    } catch (err) {
+      console.error(err);
+      alert(t('contact.form.error') || 'Error al enviar el formulario');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -117,10 +129,11 @@ export default function Contact() {
                 />
                 <button
                   type="submit"
-                  style={{ backgroundColor: builder.button, color: '#fff' }}
+                  disabled={loading}
+                  style={{ backgroundColor: builder.button, color: builder.textColor }}
                   className="font-semibold px-6 py-3 rounded-full shadow-md hover:brightness-110 transition-all"
                 >
-                  {t('contact.form.button')}
+                  {loading ? t('contact.form.sending') || 'Enviando...' : t('contact.form.button')}
                 </button>
               </form>
             )}

@@ -25,3 +25,5 @@ front/*.local
 
 test/node_modules
 test/package-lock.json
+
+.env

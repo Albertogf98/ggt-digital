@@ -209,6 +209,7 @@
       "email": "Tu correo electrónico",
       "message": "Tu mensaje",
       "button": "Enviar mensaje",
+      "sending": "Enviando...",
       "message_after": {
         "title": "¡Gracias!",
         "message": "Hemos recibido tu mensaje, nos pondremos en contacto contigo lo antes posible."
