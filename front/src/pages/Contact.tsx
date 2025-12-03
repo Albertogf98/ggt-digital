@@ -1,11 +1,13 @@
 // src/pages/Contact.tsx
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useTheme } from '../themes/ThemeProvider';
 
 export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
   const { t } = useTranslation();
+  const { builder } = useTheme();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -17,7 +19,7 @@ export default function Contact() {
   };
 
   return (
-    <main className="overflow-x-hidden" id="contact">
+    <main className="overflow-x-hidden" id="contact" style={{ backgroundColor: builder.cardBg, color: builder.textColor }}>
       {/* Hero */}
       <section className="relative h-[90vh] sm:h-[80vh] flex items-center justify-center overflow-hidden">
         <video className="absolute top-0 left-0 w-full h-full object-cover" autoPlay loop muted playsInline>
@@ -25,6 +27,7 @@ export default function Contact() {
           Tu navegador no soporta videos HTML5
         </video>
         <div className="absolute inset-0 bg-black/50" />
+
         <div className="relative z-10 text-center px-4 sm:px-6 max-w-4xl mx-auto">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4">{t('contact.title')}</h1>
           <p className="text-white sm:text-lg md:text-xl">{t('contact.subtitle')}</p>
@@ -32,7 +35,7 @@ export default function Contact() {
       </section>
 
       {/* Contacto con mapa y formulario */}
-      <section className="py-12 sm:py-20 bg-gray-50 dark:bg-gray-900">
+      <section className="py-12 sm:py-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10">
           {/* Izquierda: mapa + info */}
           <div className="space-y-6">
@@ -44,28 +47,29 @@ export default function Contact() {
                 allowFullScreen
                 loading="lazy"
                 title="Company Location"
+                style={{ borderColor: builder.border }}
               ></iframe>
             </div>
 
             {/* Información de contacto */}
-            <div className="bg-white dark:bg-gray-800 p-4 sm:p-6 rounded-xl shadow-md space-y-3 sm:space-y-4">
+            <div style={{ backgroundColor: builder.cardBg, color: builder.textColor }} className="p-4 sm:p-6 rounded-xl shadow-md space-y-3 sm:space-y-4">
               <h3 className="text-xl sm:text-2xl font-bold">{t('contact.contact.title')}</h3>
-              <p className="text-gray-700 dark:text-gray-300 text-sm sm:text-base">{t('contact.contact.email')}: ggtdigitals@gmail.com</p>
-              <p className="text-gray-700 dark:text-gray-300 text-sm sm:text-base">{t('contact.contact.phone')}: +34 676 786 232</p>
+              <p>{t('contact.contact.email')}: ggtdigitals@gmail.com</p>
+              <p>{t('contact.contact.phone')}: +34 676 786 232</p>
 
-              <h3 className="text-xl sm:text-2xl font-bold mt-4">{t('contact.hours.title')}</h3>
-              <p className="text-gray-700 dark:text-gray-300 text-sm sm:text-base">{t('contact.hours.week')}: 8:00 AM - 6:00 PM</p>
-              <p className="text-gray-700 dark:text-gray-300 text-sm sm:text-base">{t('contact.hours.weekendSaturday')}: 10:00 AM - 1:00 PM</p>
-              <p className="text-gray-700 dark:text-gray-300 text-sm sm:text-base">{t('contact.hours.weekendSunday')}</p>
+              <h3 className={`text-xl sm:text-2xl font-bold mt-4 ${builder.heading}`}>{t('contact.hours.title')}</h3>
+              <p>{t('contact.hours.week')}: 8:00 AM - 6:00 PM</p>
+              <p>{t('contact.hours.weekendSaturday')}: 10:00 AM - 1:00 PM</p>
+              <p>{t('contact.hours.weekendSunday')}</p>
             </div>
           </div>
 
           {/* Derecha: formulario */}
           <div>
             {submitted ? (
-              <div className="bg-green-100 dark:bg-green-800 text-green-800 dark:text-green-200 p-4 sm:p-6 rounded-xl text-center shadow-md space-y-2">
+              <div style={{ backgroundColor: builder.inputBg, color: builder.textColor }} className="p-4 sm:p-6 rounded-xl text-center shadow-md space-y-2">
                 <h3 className="text-xl sm:text-2xl font-bold">{t('contact.form.message_after.title')}</h3>
-                <p className="text-sm sm:text-base">{t('contact.form.message_after.message')}</p>
+                <p>{t('contact.form.message_after.message')}</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-4 sm:gap-6">
@@ -76,7 +80,12 @@ export default function Contact() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full p-3 sm:p-4 rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+                  style={{
+                    backgroundColor: builder.inputBg,
+                    color: builder.textColor,
+                    borderColor: builder.border,
+                  }}
+                  className="w-full p-3 sm:p-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
                 />
                 <input
                   type="email"
@@ -85,7 +94,12 @@ export default function Contact() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full p-3 sm:p-4 rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+                  style={{
+                    backgroundColor: builder.inputBg,
+                    color: builder.textColor,
+                    borderColor: builder.border,
+                  }}
+                  className="w-full p-3 sm:p-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
                 />
                 <textarea
                   name="message"
@@ -94,9 +108,18 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   rows={6}
-                  className="w-full p-3 sm:p-4 rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+                  style={{
+                    backgroundColor: builder.inputBg,
+                    color: builder.textColor,
+                    borderColor: builder.border,
+                  }}
+                  className="w-full p-3 sm:p-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
                 />
-                <button type="submit" className="bg-blue-600 hover:bg-blue-500 text-white font-semibold px-6 py-3 rounded-full shadow-md transition-all">
+                <button
+                  type="submit"
+                  style={{ backgroundColor: builder.button, color: '#fff' }}
+                  className="font-semibold px-6 py-3 rounded-full shadow-md hover:brightness-110 transition-all"
+                >
                   {t('contact.form.button')}
                 </button>
               </form>

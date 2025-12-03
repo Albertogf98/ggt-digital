@@ -1,8 +1,8 @@
+@import '@fortawesome/fontawesome-free/css/all.min.css';
 @reference "tailwindcss";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import '@fortawesome/fontawesome-free/css/all.min.css';
 
 /* -------------------------
    🌈 RESET GLOBAL
@@ -24,20 +24,6 @@
   /* Main ocupa todo el espacio disponible */
   main {
     @apply flex-1 w-screen overflow-y-auto;
-  }
-
-  /* Encabezados y links */
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    @apply font-bold text-gray-100;
-  }
-
-  a {
-    @apply text-blue-600 hover:text-blue-500 transition-colors duration-200;
   }
 
   /* Selección de texto */

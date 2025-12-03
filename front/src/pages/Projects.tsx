@@ -1,7 +1,7 @@
-// src/pages/Projects.tsx
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
+import { useTheme } from '../themes/ThemeProvider';
 
 type Project = {
   title: string;
@@ -13,11 +13,12 @@ type Project = {
 
 export default function Projects() {
   const { t } = useTranslation();
+  const { builder } = useTheme();
 
   const projects: Project[] = t('projects.list', { returnObjects: true }) as Project[];
 
   return (
-    <main className="overflow-x-hidden bg-gray-50 dark:bg-gray-900 min-h-screen" id="projects">
+    <main className="overflow-x-hidden min-h-screen" style={{ backgroundColor: builder.cardBg, color: builder.textColor }} id="projects">
       {/* HERO */}
       <section className="relative h-[70vh] sm:h-[80vh] flex items-center justify-center overflow-hidden">
         <video className="absolute top-0 left-0 w-full h-full object-cover" autoPlay loop muted playsInline>
@@ -46,10 +47,11 @@ export default function Projects() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: i * 0.1 }}
               viewport={{ once: true }}
-              className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-300"
+              style={{ backgroundColor: builder.cardBg, color: builder.textColor }}
+              className="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-300"
             >
-              {/* Iframe responsive usando padding-bottom */}
-              <div className="relative w-full" style={{ paddingBottom: '56.25%' /* 16:9 */ }}>
+              {/* Iframe responsive */}
+              <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
                 <iframe
                   src={project.link}
                   title={project.title}
@@ -60,11 +62,22 @@ export default function Projects() {
 
               <div className="p-6 flex flex-col justify-between h-full">
                 <div>
-                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">{project.title}</h3>
-                  <p className="text-gray-600 dark:text-gray-300 mb-4">{project.description}</p>
+                  <h3 className="text-2xl font-bold mb-2" style={{ color: builder.heading }}>
+                    {project.title}
+                  </h3>
+                  <p className="mb-4" style={{ color: builder.textColor }}>
+                    {project.description}
+                  </p>
                   <div className="flex flex-wrap gap-2 mb-6">
                     {project.technologies.map((tech, index) => (
-                      <span key={index} className="bg-indigo-100 text-indigo-700 dark:bg-indigo-900 dark:text-indigo-300 px-3 py-1 rounded-full text-sm">
+                      <span
+                        key={index}
+                        className="px-3 py-1 rounded-full text-sm"
+                        style={{
+                          backgroundColor: builder.inputBg,
+                          color: builder.textColor,
+                        }}
+                      >
                         {tech}
                       </span>
                     ))}
@@ -76,7 +89,11 @@ export default function Projects() {
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-6 py-2 rounded-full transition text-center"
+                    className="inline-block font-semibold px-6 py-2 rounded-full transition text-center"
+                    style={{
+                      backgroundColor: builder.button,
+                      color: builder.textColor,
+                    }}
                   >
                     {t('portfolio.view_project')}
                   </a>
@@ -88,7 +105,7 @@ export default function Projects() {
       </section>
 
       {/* CTA FINAL */}
-      <section className="relative flex flex-col md:flex-row items-center justify-center overflow-hidden py-16 px-6 lg:px-20 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-700">
+      <section className="relative flex flex-col md:flex-row items-center justify-center overflow-hidden py-16 px-6 lg:px-20" style={{ backgroundColor: builder.cardBg }}>
         <div className="w-full max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
           {/* Imagen */}
           <div className="flex-1 flex justify-center">
@@ -97,11 +114,16 @@ export default function Projects() {
 
           {/* Texto */}
           <div className="flex-1 text-center md:text-left max-w-xl">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-4">{t('services.section.title')}</h2>
-            <p className="text-white/90 text-base sm:text-lg md:text-xl mb-6 leading-relaxed">{t('services.section.description')}</p>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-4" style={{ color: builder.heading }}>
+              {t('services.section.title')}
+            </h2>
+            <p className="mb-6 leading-relaxed" style={{ color: builder.textColor }}>
+              {t('services.section.description')}
+            </p>
             <Link
               to="/contact"
-              className="no-underline inline-block bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-700 hover:to-indigo-800 text-white font-semibold text-lg px-10 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+              className="no-underline inline-block font-semibold px-10 py-4 rounded-full shadow-lg transition-all duration-300 text-center"
+              style={{ backgroundColor: builder.button, color: builder.textColor }}
             >
               {t('services.section.button')}
             </Link>
