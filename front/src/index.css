@@ -1,4 +1,3 @@
-@import '@fortawesome/fontawesome-free/css/all.min.css';
 @reference "tailwindcss";
 @tailwind base;
 @tailwind components;
@@ -88,6 +87,23 @@
     animation: slideUp 0.8s ease both;
   }
 
+  .slide-down {
+    animation: slideDown 0.3s ease forwards;
+  }
+
+  .slide-up-out {
+    animation: slideUpOut 0.3s ease forwards;
+  }
+
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradientShift 12s ease infinite;
+  }
+
+  .animate-float {
+    animation: float 5s ease-in-out infinite;
+  }
+
   @keyframes fadeIn {
     from {
       opacity: 0;
@@ -110,112 +126,52 @@
     }
   }
 
-  @keyframes slideDown {
-    0% {
-      transform: translateY(-20px);
+  @keyframes slideUpOut {
+    from {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    to {
+      transform: translateY(-100%);
       opacity: 0;
     }
-    100% {
+  }
+
+  @keyframes slideDown {
+    from {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    to {
       transform: translateY(0);
       opacity: 1;
     }
   }
-}
 
-@keyframes slideDown {
-  from {
-    transform: translateY(-100%);
-    opacity: 0;
+  @keyframes gradientShift {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
   }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-@keyframes slideUp {
-  from {
-    transform: translateY(0);
-    opacity: 1;
-  }
-  to {
-    transform: translateY(-100%);
-    opacity: 0;
-  }
-}
-.animate-slideDown {
-  animation: slideDown 0.3s ease forwards;
-}
-.animate-slideUp {
-  animation: slideUp 0.3s ease forwards;
-}
 
-@keyframes gradientShift {
-  0% {
-    background-position: 0% 50%;
+  @keyframes float {
+    0% {
+      transform: translateY(0) scale(1);
+      opacity: 0.6;
+    }
+    50% {
+      transform: translateY(-20px) scale(1.1);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(0) scale(1);
+      opacity: 0.6;
+    }
   }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-.animate-gradient {
-  background-size: 200% 200%;
-  animation: gradientShift 12s ease infinite;
-}
-
-@keyframes float {
-  0% {
-    transform: translateY(0) scale(1);
-    opacity: 0.6;
-  }
-  50% {
-    transform: translateY(-20px) scale(1.1);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(0) scale(1);
-    opacity: 0.6;
-  }
-}
-
-.animate-float {
-  animation: float 5s ease-in-out infinite;
-}
-@keyframes gradientShift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-.animate-gradient {
-  background-size: 200% 200%;
-  animation: gradientShift 12s ease infinite;
-}
-
-@keyframes float {
-  0% {
-    transform: translateY(0) scale(1);
-    opacity: 0.6;
-  }
-  50% {
-    transform: translateY(-20px) scale(1.1);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(0) scale(1);
-    opacity: 0.6;
-  }
-}
-
-.animate-float {
-  animation: float 5s ease-in-out infinite;
 }

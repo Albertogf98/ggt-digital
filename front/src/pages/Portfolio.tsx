@@ -63,7 +63,7 @@ export default function Portfolio() {
       </section>
 
       {/* SECCIÓN DE PROYECTOS */}
-      <section id="projects" className="py-16 sm:py-20" style={cardStyle}>
+      <section id="projects" className="py-16 sm:py-20" style={{ backgroundColor: builder.cardBg }}>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-10">
             {projects.map((project, i) => (
@@ -73,25 +73,32 @@ export default function Portfolio() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 viewport={{ once: true }}
-                className="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover:scale-[1.02] transition duration-300"
-                style={cardStyle}
+                className="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover:scale-[1.02] transition duration-300 relative group"
               >
-                <div className="relative group">
-                  <img src={project.image} alt={project.title} className="w-full h-48 sm:h-56 object-cover" />
-                  <div
-                    className="absolute inset-0 flex flex-col justify-center items-center text-center px-3 sm:px-4 opacity-0 group-hover:opacity-100 transition"
-                    style={overlayStyle}
+                <img src={project.image} alt={project.title} className="w-full h-48 sm:h-56 object-cover" />
+
+                {/* Overlay de texto */}
+                <div
+                  className="absolute inset-0 flex flex-col justify-center items-center text-center px-4 transition-opacity duration-300
+                       opacity-100 sm:opacity-0 group-hover:opacity-100"
+                  style={{
+                    backgroundColor: 'rgba(0,0,0,0.5)',
+                    backdropFilter: 'blur(4px)',
+                  }}
+                >
+                  <h3 className="text-lg sm:text-xl font-bold mb-2" style={{ color: builder.textColor }}>
+                    {project.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm mb-4" style={{ color: builder.textColor }}>
+                    {project.description}
+                  </p>
+                  <Link
+                    to="/projects"
+                    className={`no-underline px-3 py-1 sm:px-4 sm:py-2 rounded-full font-medium transition ${builder.textColor} ${builder.button}`}
+                    style={{ backgroundColor: builder.button, color: builder.textColor }}
                   >
-                    <h3 className="text-lg sm:text-xl font-bold mb-2" style={textStyle}>
-                      {project.title}
-                    </h3>
-                    <p className="text-xs sm:text-sm mb-4" style={textStyle}>
-                      {project.description}
-                    </p>
-                    <Link to="/projects" className="no-underline px-3 py-1 sm:px-4 sm:py-2 rounded-full font-medium transition" style={buttonStyle}>
-                      {labelSeeProject}
-                    </Link>
-                  </div>
+                    {labelSeeProject}
+                  </Link>
                 </div>
               </motion.div>
             ))}
