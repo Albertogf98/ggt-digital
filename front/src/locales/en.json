@@ -220,5 +220,39 @@
       "description": "Usamos cookies y otros datos para mejorar tu experiencia. Al continuar navegando, aceptas nuestra política de privacidad.",
       "accept": "Aceptar"
     }
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "subtitle": "Your privacy is important to us",
+    "intro": {
+      "title": "Introduction",
+      "text": "This policy explains how we handle your personal data."
+    },
+    "dataCollected": {
+      "title": "Data We Collect",
+      "items": ["Name and email address", "Browsing information", "User preferences"]
+    },
+    "dataUsage": {
+      "title": "How We Use Data",
+      "text": "We use your data to improve our website and provide a better service."
+    },
+    "cookies": {
+      "title": "Cookies",
+      "text": "We use cookies to personalize your experience and analyze site traffic."
+    },
+    "userRights": {
+      "title": "Your Rights",
+      "items": ["Access to your data", "Rectification of information", "Right to be forgotten"]
+    },
+    "contact": {
+      "title": "Contact",
+      "text": "If you have any questions, contact us via",
+      "linkText": "our contact form"
+    }
+  },
+  "cookie": {
+    "description": "We use cookies to ensure you get the best experience on our website.",
+    "learn_more": "Learn more",
+    "accept": "Accept"
   }
 }

@@ -219,5 +219,39 @@
   "cookie": {
     "description": "We use cookies and other data to improve your experience. By continuing to browse, you agree to our privacy policy.",
     "accept": "Accept"
+  },
+  "privacy": {
+    "title": "Política de Privacidad",
+    "subtitle": "Tu privacidad es importante para nosotros",
+    "intro": {
+      "title": "Introducción",
+      "text": "Esta política explica cómo manejamos tus datos personales."
+    },
+    "dataCollected": {
+      "title": "Datos que recolectamos",
+      "items": ["Nombre y correo electrónico", "Información de navegación", "Preferencias del usuario"]
+    },
+    "dataUsage": {
+      "title": "Uso de los datos",
+      "text": "Usamos los datos para mejorar nuestra web y ofrecer un mejor servicio."
+    },
+    "cookies": {
+      "title": "Cookies",
+      "text": "Usamos cookies para personalizar tu experiencia y analizar el tráfico del sitio."
+    },
+    "userRights": {
+      "title": "Tus derechos",
+      "items": ["Acceso a tus datos", "Rectificación de información", "Derecho al olvido"]
+    },
+    "contact": {
+      "title": "Contacto",
+      "text": "Si tienes dudas, contáctanos a través de",
+      "linkText": "nuestro formulario de contacto"
+    },
+    "cookie": {
+      "description": "Usamos cookies para garantizar que obtengas la mejor experiencia en nuestro sitio web.",
+      "learn_more": "Saber más",
+      "accept": "Aceptar"
+    }
   }
 }

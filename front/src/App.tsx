@@ -8,6 +8,8 @@ import About from './pages/About';
 import Footer from './components/footer/Footer';
 import Projects from './pages/Projects';
 import { ThemeProvider } from './themes/ThemeProvider';
+import PrivacyBanner from './pages/PrivacyModal';
+import PrivacyPolicy from './pages/PrivacyPolicy';
 
 export default function App() {
   return (
@@ -22,10 +24,12 @@ export default function App() {
             <Route path="/projects" element={<Projects />} />
             <Route path="/services" element={<Services />} />
             <Route path="/about" element={<About />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           </Routes>
         </main>
         <Footer />
       </div>
+      <PrivacyBanner />
     </ThemeProvider>
   );
 }

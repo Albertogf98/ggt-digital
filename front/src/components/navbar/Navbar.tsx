@@ -100,10 +100,10 @@ export default function Navbar() {
           <button
             onClick={toggleDarkMode}
             style={{ backgroundColor: builder.inputBg, color: builder.textColor }}
-            className="p-2 rounded-md hover:opacity-90 transition"
+            className="bg-red-500 p-2 rounded-md hover:opacity-90 transition"
             aria-label="Toggle dark mode"
           >
-            {darkMode ? <SunIcon className="w-5 h-5 text-yellow-400" /> : <MoonIcon className="w-5 h-5 text-gray-900 dark:text-gray-100" />}
+            {darkMode ? <SunIcon className="w-5 h-5 text-yellow-400" /> : <MoonIcon className="w-5 h-5 text-gray-900 dark:text-gray-100 bg-blue-500" />}
           </button>
 
           {/* Botón hamburguesa */}

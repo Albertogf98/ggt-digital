@@ -19,22 +19,18 @@ interface ThemeContextProps {
 const ThemeContext = createContext<ThemeContextProps | undefined>(undefined);
 
 export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
-  const [darkMode, setDarkMode] = useState(false);
-
-  // Inicializar darkMode desde localStorage
-  useEffect(() => {
+  // ✅ Inicializa darkMode desde localStorage si existe, si no, true por defecto
+  const [darkMode, setDarkMode] = useState(() => {
     const stored = localStorage.getItem('darkMode');
-    if (stored) setDarkMode(stored === 'true');
-  }, []);
+    return stored !== null ? stored === 'true' : true;
+  });
 
-  // Aplicar clase y almacenar estado
+  // Aplicar clase dark al root y guardar elección
   useEffect(() => {
     const root = window.document.documentElement;
-    if (darkMode) {
-      root.classList.add('dark');
-    } else {
-      root.classList.remove('dark');
-    }
+    if (darkMode) root.classList.add('dark');
+    else root.classList.remove('dark');
+
     localStorage.setItem('darkMode', darkMode.toString());
   }, [darkMode]);
 
@@ -43,22 +39,22 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   // Builder dinámico según darkMode
   const builder: BuilderColors = darkMode
     ? {
-        inputBg: '#1f2937', // gris oscuro
-        textColor: '#f9fafb', // blanco
-        border: '#374151', // gris medio
-        button: '#3b82f6', // azul
+        inputBg: '#1f2937',
+        textColor: '#f9fafb',
+        border: '#374151',
+        button: '#3b82f6',
         heading: '#f9fafb',
-        cardBg: '#111827', // casi negro
-        icon: '#f9fafb', // color para íconos en dark mode
+        cardBg: '#111827',
+        icon: '#f9fafb',
       }
     : {
-        inputBg: '#f3f4f6', // gris claro
-        textColor: '#111827', // casi negro
-        border: '#d1d5db', // gris
-        button: '#fbfdffff', // azul
+        inputBg: '#f3f4f6',
+        textColor: '#111827',
+        border: '#d1d5db',
+        button: '#3b82f6',
         heading: '#111827',
-        cardBg: '#ffffff', // blanco
-        icon: '#111827', // color para íconos en dark mode
+        cardBg: '#ffffff',
+        icon: '#111827',
       };
 
   return <ThemeContext.Provider value={{ darkMode, toggleDarkMode, builder }}>{children}</ThemeContext.Provider>;
